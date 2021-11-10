@@ -6,9 +6,15 @@ import produce from 'immer'
 
 function VerticalStepsList ({ items: initItems, ...props }) {
   const [items, setItems] = useState(initItems)
+  const [called, setCalled] = useState(false)
 
   const checkedHandler = async (i) => {
     if (items[i].callback instanceof Function) {
+      if (called) {
+        return
+      }
+
+      setCalled(true)
       const callbackResponse = items[i].callback()
       if (callbackResponse instanceof Promise) {
         setItems(produce(items, draft => {
@@ -16,6 +22,7 @@ function VerticalStepsList ({ items: initItems, ...props }) {
         }))
         try {
           const promiseResponse = await callbackResponse
+          setCalled(false)
           setItems(produce(items, draft => {
             draft[i].disabled = false
           }))
@@ -23,6 +30,7 @@ function VerticalStepsList ({ items: initItems, ...props }) {
             return
           }
         } catch (err) {
+          setCalled(false)
           setItems(produce(items, draft => {
             draft[i].disabled = false
           }))
@@ -31,6 +39,7 @@ function VerticalStepsList ({ items: initItems, ...props }) {
         }
       }
 
+      setCalled(false)
       if (callbackResponse === false) {
         return
       }

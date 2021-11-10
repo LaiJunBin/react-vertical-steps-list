@@ -69,6 +69,11 @@ function VerticalStepsList(_ref) {
       items = _useState2[0],
       setItems = _useState2[1];
 
+  var _useState3 = (0, _react.useState)(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      called = _useState4[0],
+      setCalled = _useState4[1];
+
   var checkedHandler = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(i) {
       var callbackResponse, promiseResponse;
@@ -77,59 +82,72 @@ function VerticalStepsList(_ref) {
           switch (_context.prev = _context.next) {
             case 0:
               if (!(items[i].callback instanceof Function)) {
-                _context.next = 20;
+                _context.next = 26;
                 break;
               }
 
+              if (!called) {
+                _context.next = 3;
+                break;
+              }
+
+              return _context.abrupt("return");
+
+            case 3:
+              setCalled(true);
               callbackResponse = items[i].callback();
 
               if (!(callbackResponse instanceof Promise)) {
-                _context.next = 18;
+                _context.next = 23;
                 break;
               }
 
               setItems((0, _immer.default)(items, function (draft) {
                 draft[i].disabled = true;
               }));
-              _context.prev = 4;
-              _context.next = 7;
+              _context.prev = 7;
+              _context.next = 10;
               return callbackResponse;
 
-            case 7:
+            case 10:
               promiseResponse = _context.sent;
+              setCalled(false);
               setItems((0, _immer.default)(items, function (draft) {
                 draft[i].disabled = false;
               }));
 
               if (!(promiseResponse === false)) {
-                _context.next = 11;
+                _context.next = 15;
                 break;
               }
 
               return _context.abrupt("return");
 
-            case 11:
-              _context.next = 18;
+            case 15:
+              _context.next = 23;
               break;
 
-            case 13:
-              _context.prev = 13;
-              _context.t0 = _context["catch"](4);
+            case 17:
+              _context.prev = 17;
+              _context.t0 = _context["catch"](7);
+              setCalled(false);
               setItems((0, _immer.default)(items, function (draft) {
                 draft[i].disabled = false;
               }));
               console.error(_context.t0);
               return _context.abrupt("return");
 
-            case 18:
+            case 23:
+              setCalled(false);
+
               if (!(callbackResponse === false)) {
-                _context.next = 20;
+                _context.next = 26;
                 break;
               }
 
               return _context.abrupt("return");
 
-            case 20:
+            case 26:
               setItems((0, _immer.default)(items, function (draft) {
                 draft[i].status = _status.default.DONE;
 
@@ -142,12 +160,12 @@ function VerticalStepsList(_ref) {
                 }
               }));
 
-            case 21:
+            case 27:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, null, [[4, 13]]);
+      }, _callee, null, [[7, 17]]);
     }));
 
     return function checkedHandler(_x) {
