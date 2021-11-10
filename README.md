@@ -12,7 +12,7 @@ $ npm i react-vertical-steps-list
 ## Example
 jsx:
 ```jsx
-  <VerticalProgressList items={items} />
+  <VerticalStepsList items={items} />
 ```
 
 
@@ -20,12 +20,12 @@ items:
 ```js
 const items = [{
   text: 'Progress 1',
-  status: VPL_STATUS.DONE,
+  status: VSL_STATUS.DONE,
   time: '12:00'
 }, {
   text: 'Progress 2',
   time: '12:30',
-  status: VPL_STATUS.DONE,
+  status: VSL_STATUS.DONE,
   children: [{
     text: 'Children 1'
   }, {
@@ -33,7 +33,7 @@ const items = [{
   }]
 }, {
   text: 'Progress 3',
-  status: VPL_STATUS.PENDING,
+  status: VSL_STATUS.PENDING,
   callback () {
     return new Promise(resolve => {
       setTimeout(() => {
@@ -43,10 +43,10 @@ const items = [{
   }
 }, {
   text: 'Progress 4',
-  status: VPL_STATUS.COMING
+  status: VSL_STATUS.COMING
 }, {
   text: 'Progress 5',
-  status: VPL_STATUS.COMING,
+  status: VSL_STATUS.COMING,
   callback () {
     return new Promise(resolve => {
       setTimeout(() => {
@@ -71,7 +71,7 @@ const itemFilterHandler = item => {
   return item
 }
 
-<VerticalProgressList
+<VerticalStepsList
   items={items}
   textFilter={text => text + '!'}
   childFilter={text => `Filtered ${text}`}
@@ -83,7 +83,7 @@ items:
 ```js
 const items = [{
   text: 'Progress 1',
-  status: VPL_STATUS.DONE,
+  status: VSL_STATUS.DONE,
   time: '12:00',
   meta () {
     return this.time
@@ -91,7 +91,7 @@ const items = [{
 }, {
   text: 'Progress 2',
   time: '12:30',
-  status: VPL_STATUS.DONE,
+  status: VSL_STATUS.DONE,
   children: [{
     text: 'Children 1'
   }, {
@@ -102,7 +102,7 @@ const items = [{
   }
 }, {
   text: 'Progress 3',
-  status: VPL_STATUS.PENDING,
+  status: VSL_STATUS.PENDING,
   callback () {
     return save().then(res => {
       this.time = res.time
@@ -120,12 +120,12 @@ const items = [{
   }
 }, {
   text: 'Progress 4',
-  status: VPL_STATUS.COMING,
+  status: VSL_STATUS.COMING,
   marker: <Marker />,
   checkbox: <Checkbox />
 }, {
   text: 'Progress 5',
-  status: VPL_STATUS.COMING,
+  status: VSL_STATUS.COMING,
   callback () {
     return error().catch(err => {
       console.error(err)
