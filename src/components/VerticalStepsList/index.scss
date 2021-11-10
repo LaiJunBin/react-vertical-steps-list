@@ -1,0 +1,95 @@
+.vpl-list {
+    .marker {
+        display: inline-block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .circle-marker {
+            width: 12.8px;
+            height: 12.8px;
+            margin: 0 3.6px;
+            background: #000;
+            border-radius: 50%;
+        }
+
+        & > * {
+            width: 20px;
+            height: 20px;
+        }
+
+    }
+
+    label {
+        display: inline-flex;
+        align-items: center;
+        margin: .25em 0;
+
+        & > span {
+            margin: 0 .25em;
+        }
+
+        .disabled  {
+            & > * {
+                color: #eee;
+                opacity: 0.5;
+            }
+            .default-checkbox {
+                background-color: #eee;
+                opacity: 0.5;
+            }
+        }
+        & > div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            & * {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+
+    .default-checkbox {
+        border: 1px solid #333;
+        width: 14px;
+        height: 14px;
+        margin: 0 3px;
+    }
+
+    .node .meta {
+        float: right;
+    }
+
+    .children {
+        display: flex;
+
+        & > .line {
+            width: 2em;
+            height: auto;
+        }
+    }
+
+    .done.children {
+        border-color: #000;
+    }
+
+    .line {
+        height: 1em;
+        margin-left: 10px;
+        border-left: 1px solid #000;
+    }
+
+    .coming {
+        color: #bbbb;
+    }
+
+    .coming .marker {
+        opacity: 0.3;
+    }
+
+    .coming.line {
+        border-color: #bbbb;
+    }
+}
