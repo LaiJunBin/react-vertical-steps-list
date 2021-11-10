@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import React, { isValidElement, useState } from 'react'
-import VPL_STATUS from './status'
+import VSL_STATUS from './status'
 import './index.scss'
 import produce from 'immer'
 
@@ -37,10 +37,10 @@ function VerticalStepsList ({ items: initItems, ...props }) {
     }
 
     setItems(produce(items, draft => {
-      draft[i].status = VPL_STATUS.DONE
+      draft[i].status = VSL_STATUS.DONE
 
       if (draft[i + 1]) {
-        draft[i + 1].status = VPL_STATUS.PENDING
+        draft[i + 1].status = VSL_STATUS.PENDING
       }
 
       if (draft[i].update instanceof Function) {
@@ -61,17 +61,17 @@ function VerticalStepsList ({ items: initItems, ...props }) {
   }
 
   return (
-        <div {...availableProps} className={classNames('vpl-list', props.className)}>
+        <div {...availableProps} className={classNames('vsl-list', props.className)}>
             {items.map((item, i) => {
               item = (props.itemFilter instanceof Function && props.itemFilter(item)) || item
 
               return (
                     <React.Fragment key={i}>
                         <div className={classNames('node', {
-                          coming: item.status === VPL_STATUS.COMING
+                          coming: item.status === VSL_STATUS.COMING
                         })} >
                             <label>
-                              { item.status === VPL_STATUS.PENDING
+                              { item.status === VSL_STATUS.PENDING
                                 ? (
                                   <>
                                     <input
@@ -111,13 +111,13 @@ function VerticalStepsList ({ items: initItems, ...props }) {
                         </div>
 
                         { items.length - 1 > i && !item.children && <div className={classNames('line', {
-                          coming: items[i + 1].status === VPL_STATUS.COMING
+                          coming: items[i + 1].status === VSL_STATUS.COMING
                         })}></div>}
 
                         { item.children && (
                             <div className={classNames('children', {
-                              coming: items[i].status === VPL_STATUS.COMING,
-                              done: items[i].status === VPL_STATUS.DONE
+                              coming: items[i].status === VSL_STATUS.COMING,
+                              done: items[i].status === VSL_STATUS.DONE
                             })}>
                                 <div className="line"></div>
                                 <div>
