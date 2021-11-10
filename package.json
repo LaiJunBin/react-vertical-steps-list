@@ -12,7 +12,7 @@
     "src/components"
   ],
   "main": "dist/index.js",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "private": false,
   "scripts": {
     "start": "react-scripts start",
