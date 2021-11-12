@@ -168,6 +168,11 @@ items    | data to generate steps list. |
 textFilter    | Filter function for text of all items. |
 childFilter  | Filter function for text of children in all item | 
 itemFilter| Filter function for all item. |
+itemClass | set class for all item.  |
+itemStyle | set style for all item.  |
+childrenClass | set class for children of all item.  |
+childrenStyle | set style for children of all item. |
+darkTheme |  set true for dark theme. |
 
 items: an Array, item like below:
 ```js

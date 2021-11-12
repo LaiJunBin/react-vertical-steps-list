@@ -169,6 +169,12 @@ items    | 要產生清單的項目 |
 textFilter    | 針對每個清單項目文字的過濾器函數 |
 childFilter  | 針對每個清單子項目文字的過濾器函數 | 
 itemFilter| 針對每個清單項目的過濾器函數 |
+itemClass | 設定每個清單項目的 class  |
+itemStyle | 設定每個清單項目的 style  |
+childrenClass | 設定每個清單子項目的 class  |
+childrenStyle |  設定每個清單子項目的 style |
+darkTheme |  設定是否開啟深色主題 |
+
 
 items: 一個陣列，每個item如下
 ```js
