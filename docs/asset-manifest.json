@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/react-vertical-steps-list/static/css/main.b1cf47b7.chunk.css",
-    "main.js": "/react-vertical-steps-list/static/js/main.bc30306e.chunk.js",
-    "main.js.map": "/react-vertical-steps-list/static/js/main.bc30306e.chunk.js.map",
+    "main.css": "/react-vertical-steps-list/static/css/main.c1191065.chunk.css",
+    "main.js": "/react-vertical-steps-list/static/js/main.60ad01f9.chunk.js",
+    "main.js.map": "/react-vertical-steps-list/static/js/main.60ad01f9.chunk.js.map",
     "runtime-main.js": "/react-vertical-steps-list/static/js/runtime-main.1f3e56ea.js",
     "runtime-main.js.map": "/react-vertical-steps-list/static/js/runtime-main.1f3e56ea.js.map",
     "static/js/2.ac6039a9.chunk.js": "/react-vertical-steps-list/static/js/2.ac6039a9.chunk.js",
     "static/js/2.ac6039a9.chunk.js.map": "/react-vertical-steps-list/static/js/2.ac6039a9.chunk.js.map",
     "index.html": "/react-vertical-steps-list/index.html",
-    "static/css/main.b1cf47b7.chunk.css.map": "/react-vertical-steps-list/static/css/main.b1cf47b7.chunk.css.map",
+    "static/css/main.c1191065.chunk.css.map": "/react-vertical-steps-list/static/css/main.c1191065.chunk.css.map",
     "static/js/2.ac6039a9.chunk.js.LICENSE.txt": "/react-vertical-steps-list/static/js/2.ac6039a9.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.1f3e56ea.js",
     "static/js/2.ac6039a9.chunk.js",
-    "static/css/main.b1cf47b7.chunk.css",
-    "static/js/main.bc30306e.chunk.js"
+    "static/css/main.c1191065.chunk.css",
+    "static/js/main.60ad01f9.chunk.js"
   ]
 }
