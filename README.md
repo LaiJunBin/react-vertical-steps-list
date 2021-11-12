@@ -9,6 +9,11 @@
 $ npm i react-vertical-steps-list
 ```
 
+# Import
+```js
+import { VerticalStepsList, VSL_STATUS } from 'react-vertical-steps-list'
+```
+
 ## Example
 jsx:
 ```jsx
@@ -145,3 +150,51 @@ $ npm run start
 ```
 
 The server will run at http://localhost:3000
+
+
+# Docs
+
+VSL_Status:
+Value           | Description  |
+--------------|:-----:|
+Done    | step is done. |
+Pending    | step waiting for user to click. |
+Coming  | step coming soon. | 
+
+VerticalStepsList:
+Attribute           | Description  |
+--------------|:-----:|
+items    | data to generate steps list. |
+textFilter    | Filter function for text of all items. |
+childFilter  | Filter function for text of children in all item | 
+itemFilter| Filter function for all item. |
+
+items: an Array, item like below:
+```js
+{
+  text: '',       // required
+  status: {status in VSL_STATUS},  // required
+  children: [{              // optional
+    text: ''
+  }],
+  marker: <YourMarkerComponent />,       // optional
+  checkbox: <YourCheckboxComponent />,   // optional
+  callback() {              // optional
+
+  },
+  update() {                // optional
+
+  },
+  meta() {                  // optional
+
+  },
+  // ... more custom data.
+}
+```
+
+## 函數說明
+Function           | Description  |
+--------------|:-----:|
+callback    | Triggered when user click, if you return false, the step won't go to next stage. |
+update    | Triggered when the step goes to next stage, you can update item data in this funciton. |
+meta  | Set text in the right side. | 
