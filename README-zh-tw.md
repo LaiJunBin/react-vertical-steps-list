@@ -1,5 +1,7 @@
 # React Vertical Steps List
 
+[English](https://github.com/LaiJunBin/react-vertical-steps-list#react-vertical-steps-list)｜繁體中文
+
 [DEMO](https://laijunbin.github.io/react-vertical-steps-list/index.html)
 
 ![demo.png](./demo.png)
