@@ -92,4 +92,50 @@
     .coming.line {
         border-color: #bbbb;
     }
+
+    &.dark-theme {
+        color: #fff;
+        
+        .marker {
+            .circle-marker {
+                background: #fff;
+            }
+        }
+    
+        label {
+            .disabled  {
+                & > * {
+                    color: #444;
+                }
+                .default-checkbox {
+                    background-color: #444;
+                    opacity: 0.5;
+                }
+            }
+        }
+    
+        .default-checkbox {
+            border: 1px solid #fff;
+        }
+    
+        .done.children {
+            border-color: #fff;
+        }
+    
+        .line {
+            border-left: 1px solid #fff;
+        }
+    
+        .coming {
+            color: #888;
+        }
+    
+        .coming .marker {
+            opacity: 0.5;
+        }
+    
+        .coming.line {
+            border-color: #888;
+        }
+    }
 }

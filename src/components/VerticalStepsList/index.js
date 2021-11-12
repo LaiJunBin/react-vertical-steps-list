@@ -59,8 +59,9 @@ function VerticalStepsList ({ items: initItems, ...props }) {
   }
 
   const availableProps = {}
+  const ignoreProps = ['itemClass', 'itemStyle', 'childrenClass', 'childrenStyle', 'darkTheme']
   for (const key in props) {
-    if ((props[key] instanceof Function || isValidElement(props[key])) === false) {
+    if ((props[key] instanceof Function || isValidElement(props[key])) === false && !ignoreProps.includes(key)) {
       availableProps[key] = props[key]
     }
   }
@@ -70,7 +71,9 @@ function VerticalStepsList ({ items: initItems, ...props }) {
   }
 
   return (
-        <div {...availableProps} className={classNames('vsl-list', props.className)}>
+        <div {...availableProps} className={classNames('vsl-list', props.className, {
+          'dark-theme': !!props.darkTheme
+        })}>
             {items.map((item, i) => {
               item = (props.itemFilter instanceof Function && props.itemFilter(item)) || item
 
@@ -78,7 +81,7 @@ function VerticalStepsList ({ items: initItems, ...props }) {
                     <React.Fragment key={i}>
                         <div className={classNames('node', {
                           coming: item.status === VSL_STATUS.COMING
-                        })} >
+                        }, props.itemClass)} style={props.itemStyle} >
                             <label>
                               { item.status === VSL_STATUS.PENDING
                                 ? (
@@ -127,7 +130,7 @@ function VerticalStepsList ({ items: initItems, ...props }) {
                             <div className={classNames('children', {
                               coming: items[i].status === VSL_STATUS.COMING,
                               done: items[i].status === VSL_STATUS.DONE
-                            })}>
+                            }, props.childrenClass)} style={props.childrenStyle}>
                                 <div className="line"></div>
                                 <div>
                                   {item.children.map((child, j) => (
