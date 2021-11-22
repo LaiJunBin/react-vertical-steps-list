@@ -8,8 +8,7 @@
   "author": "Lai JunBin",
   "license": "MIT",
   "files": [
-    "dist",
-    "src/components"
+    "dist"
   ],
   "main": "dist/index.js",
   "version": "0.1.11",
