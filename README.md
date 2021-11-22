@@ -199,7 +199,7 @@ items: an Array, item like below:
 }
 ```
 
-## 函數說明
+## Function description
 Function           | Description  |
 --------------|:-----:|
 callback    | Triggered when user click, if you return false, the step won't go to next stage. |
