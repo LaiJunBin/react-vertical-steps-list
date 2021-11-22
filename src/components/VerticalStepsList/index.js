@@ -59,7 +59,19 @@ function VerticalStepsList ({ items: initItems, ...props }) {
   }
 
   const availableProps = {}
-  const ignoreProps = ['itemClass', 'itemStyle', 'childrenClass', 'childrenStyle', 'darkTheme']
+  const ignoreProps = ['itemClass',
+    'itemStyle',
+    'childrenClass',
+    'childrenStyle',
+    'darkTheme',
+    'lineColor',
+    'hideLastLine',
+    'defaultMarkerColor',
+    'defaultCheckboxColor',
+    'metaStyle',
+    'textStyle',
+    'childStyle'
+  ]
   for (const key in props) {
     if ((props[key] instanceof Function || isValidElement(props[key])) === false && !ignoreProps.includes(key)) {
       availableProps[key] = props[key]
@@ -96,7 +108,9 @@ function VerticalStepsList ({ items: initItems, ...props }) {
                                     {
                                       isValidElement(item.checkbox)
                                         ? <>{item.checkbox}</>
-                                        : <div className="default-checkbox"></div>
+                                        : <div className="default-checkbox" style={{
+                                          borderColor: props.defaultCheckboxColor
+                                        }}></div>
                                     }
                                     </div>
                                   </>
@@ -106,35 +120,41 @@ function VerticalStepsList ({ items: initItems, ...props }) {
                                   {
                                     isValidElement(item.marker)
                                       ? <>{item.marker}</>
-                                      : <div className="circle-marker"></div>
+                                      : <div className="circle-marker" style={{ backgroundColor: props.defaultMarkerColor }}></div>
                                   }
                                   </>
                                 </div>
                               }
-                              <span>
+                              <span style={props.textStyle}>
                                 {(props.textFilter instanceof Function && props.textFilter(item.text)) || item.text}
                               </span>
                             </label>
                             { item.meta instanceof Function
                               ? <>
-                                  <div className="meta">{item.meta()}</div>
+                                  <div className="meta" style={props.metaStyle}>{item.meta()}</div>
                                 </>
                               : ''}
                         </div>
 
                         { items.length - 1 > i && !item.children && <div className={classNames('line', {
                           coming: items[i + 1].status === VSL_STATUS.COMING
-                        })}></div>}
+                        })} style={{
+                          borderColor: props.lineColor
+                        }}></div>}
 
                         { item.children && (
                             <div className={classNames('children', {
                               coming: items[i].status === VSL_STATUS.COMING,
                               done: items[i].status === VSL_STATUS.DONE
                             }, props.childrenClass)} style={props.childrenStyle}>
-                                <div className="line"></div>
+                                {!props.hideLastLine || i < items.length - 1
+                                  ? <div className="line" style={{
+                                    borderColor: props.lineColor
+                                  }}></div>
+                                  : <div style={{ marginLeft: 10, width: '2em' }}></div>}
                                 <div>
                                   {item.children.map((child, j) => (
-                                    <div key={j}>
+                                    <div key={j} style={props.childStyle}>
                                         {(props.childFilter instanceof Function && props.childFilter(child.text)) || child.text}
                                       </div>
                                   ))}

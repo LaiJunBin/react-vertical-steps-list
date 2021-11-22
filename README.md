@@ -175,6 +175,13 @@ itemStyle | set style for all item.  |
 childrenClass | set class for children of all item.  |
 childrenStyle | set style for children of all item. |
 darkTheme |  set true for dark theme. |
+lineColor |  set color of line.  |
+hideLastLine |  set true to hide last children line.  |
+defaultMarkerColor |  set color of default marker.  |
+defaultCheckboxColor |  set color of default checkbox.  |
+metaStyle |  set style for meta.  |
+textStyle |  set style for text.  |
+childStyle |  set style for child.  |
 
 items: an Array, item like below:
 ```js

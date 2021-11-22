@@ -176,6 +176,13 @@ itemStyle | 設定每個清單項目的 style  |
 childrenClass | 設定每個清單子項目的 class  |
 childrenStyle |  設定每個清單子項目的 style |
 darkTheme |  設定是否開啟深色主題 |
+lineColor |  設定線的顏色  |
+hideLastLine |  設定是否隱藏最後子項目的線  |
+defaultMarkerColor |  設定預設標記的顏色  |
+defaultCheckboxColor |  設定預設核取方塊的顏色  |
+metaStyle |  設定 meta 的 style  |
+textStyle |  設定 text 的 style  |
+childStyle |  設定 child 的 style  |
 
 
 items: 一個陣列，每個item如下
