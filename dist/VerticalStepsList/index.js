@@ -174,7 +174,7 @@ function VerticalStepsList(_ref) {
   }();
 
   var availableProps = {};
-  var ignoreProps = ['itemClass', 'itemStyle', 'childrenClass', 'childrenStyle', 'darkTheme'];
+  var ignoreProps = ['itemClass', 'itemStyle', 'childrenClass', 'childrenStyle', 'darkTheme', 'lineColor', 'hideLastLine', 'defaultMarkerColor', 'defaultCheckboxColor', 'metaStyle', 'textStyle', 'childStyle'];
 
   for (var key in props) {
     if ((props[key] instanceof Function || /*#__PURE__*/(0, _react.isValidElement)(props[key])) === false && !ignoreProps.includes(key)) {
@@ -215,28 +215,49 @@ function VerticalStepsList(_ref) {
         disabled: item.disabled
       })
     }, /*#__PURE__*/(0, _react.isValidElement)(item.checkbox) ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, item.checkbox) : /*#__PURE__*/_react.default.createElement("div", {
-      className: "default-checkbox"
+      className: "default-checkbox",
+      style: {
+        borderColor: props.defaultCheckboxColor
+      }
     }))) : /*#__PURE__*/_react.default.createElement("div", {
       className: "marker"
     }, /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/(0, _react.isValidElement)(item.marker) ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, item.marker) : /*#__PURE__*/_react.default.createElement("div", {
-      className: "circle-marker"
-    }))), /*#__PURE__*/_react.default.createElement("span", null, props.textFilter instanceof Function && props.textFilter(item.text) || item.text)), item.meta instanceof Function ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
-      className: "meta"
+      className: "circle-marker",
+      style: {
+        backgroundColor: props.defaultMarkerColor
+      }
+    }))), /*#__PURE__*/_react.default.createElement("span", {
+      style: props.textStyle
+    }, props.textFilter instanceof Function && props.textFilter(item.text) || item.text)), item.meta instanceof Function ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
+      className: "meta",
+      style: props.metaStyle
     }, item.meta())) : ''), items.length - 1 > i && !item.children && /*#__PURE__*/_react.default.createElement("div", {
       className: (0, _classnames.default)('line', {
         coming: items[i + 1].status === _status.default.COMING
-      })
+      }),
+      style: {
+        borderColor: props.lineColor
+      }
     }), item.children && /*#__PURE__*/_react.default.createElement("div", {
       className: (0, _classnames.default)('children', {
         coming: items[i].status === _status.default.COMING,
         done: items[i].status === _status.default.DONE
       }, props.childrenClass),
       style: props.childrenStyle
-    }, /*#__PURE__*/_react.default.createElement("div", {
-      className: "line"
+    }, !props.hideLastLine || i < items.length - 1 ? /*#__PURE__*/_react.default.createElement("div", {
+      className: "line",
+      style: {
+        borderColor: props.lineColor
+      }
+    }) : /*#__PURE__*/_react.default.createElement("div", {
+      style: {
+        marginLeft: 10,
+        width: '2em'
+      }
     }), /*#__PURE__*/_react.default.createElement("div", null, item.children.map(function (child, j) {
       return /*#__PURE__*/_react.default.createElement("div", {
-        key: j
+        key: j,
+        style: props.childStyle
       }, props.childFilter instanceof Function && props.childFilter(child.text) || child.text);
     }))));
   }));
