@@ -70,7 +70,8 @@ function VerticalStepsList ({ items: initItems, ...props }) {
     'defaultCheckboxColor',
     'metaStyle',
     'textStyle',
-    'childStyle'
+    'childStyle',
+    'lineGap'
   ]
   for (const key in props) {
     if ((props[key] instanceof Function || isValidElement(props[key])) === false && !ignoreProps.includes(key)) {
@@ -94,7 +95,9 @@ function VerticalStepsList ({ items: initItems, ...props }) {
                         <div className={classNames('node', {
                           coming: item.status === VSL_STATUS.COMING
                         }, props.itemClass)} style={props.itemStyle} >
-                            <label>
+                            <label style={{
+                              margin: `${(props.lineGap === undefined ? 1 : props.lineGap) * 0.25}em 0`
+                            }}>
                               { item.status === VSL_STATUS.PENDING
                                 ? (
                                   <>
