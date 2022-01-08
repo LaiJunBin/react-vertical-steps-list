@@ -182,6 +182,7 @@ defaultCheckboxColor |  set color of default checkbox.  |
 metaStyle |  set style for meta.  |
 textStyle |  set style for text.  |
 childStyle |  set style for child.  |
+lineGap | set gap for line. |
 
 items: an Array, item like below:
 ```js

@@ -183,6 +183,7 @@ defaultCheckboxColor |  設定預設核取方塊的顏色  |
 metaStyle |  設定 meta 的 style  |
 textStyle |  設定 text 的 style  |
 childStyle |  設定 child 的 style  |
+lineGap | 設定線的間距
 
 
 items: 一個陣列，每個item如下
