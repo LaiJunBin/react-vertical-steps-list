@@ -6,24 +6,25 @@
         justify-content: center;
 
         .circle-marker {
-            width: 12.8px;
-            height: 12.8px;
-            margin: 0 3.6px;
+            width: 1em;
+            height: 1em;
+            margin: 0 .25em;
             background: #000;
             border-radius: 50%;
         }
 
         & > * {
-            width: 20px;
-            height: 20px;
+            width: 1em;
+            height: 1em;
+            margin: 0 0.25em;
         }
 
     }
 
     label {
-        display: inline-flex;
+        display: flex;
         align-items: center;
-        margin: .25em 0;
+        height: 1em;
 
         & > span {
             margin: 0 .25em;
@@ -45,17 +46,19 @@
             justify-content: center;
 
             & * {
-                width: 20px;
-                height: 20px;
+                width: 1em;
+                height: 1em;
+                margin: 0 0.25em;
             }
         }
     }
 
     .default-checkbox {
+        box-sizing: border-box;
         border: 1px solid #333;
-        width: 14px;
-        height: 14px;
-        margin: 0 3px;
+        width: 1em;
+        height: 1em;
+        margin: 0 0.25em;
     }
 
     .node .meta {
@@ -77,7 +80,7 @@
 
     .line {
         height: 1em;
-        margin-left: 10px;
+        margin-left: calc(0.75em - 0.5px);
         border-left: 1px solid #000;
     }
 
