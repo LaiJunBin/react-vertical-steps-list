@@ -94,10 +94,11 @@ function VerticalStepsList ({ items: initItems, ...props }) {
                     <React.Fragment key={i}>
                         <div className={classNames('node', {
                           coming: item.status === VSL_STATUS.COMING
-                        }, props.itemClass)} style={props.itemStyle} >
-                            <label style={{
-                              margin: `${(props.lineGap === undefined ? 1 : props.lineGap) * 0.25}em 0`
-                            }}>
+                        }, props.itemClass)} style={{
+                          ...props.itemStyle,
+                          height: `${1 + (props.lineGap === undefined ? 1 : props.lineGap) * 0.5}em`
+                        }} >
+                            <label>
                               { item.status === VSL_STATUS.PENDING
                                 ? (
                                   <>
