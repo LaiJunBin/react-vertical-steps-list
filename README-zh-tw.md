@@ -184,6 +184,9 @@ metaStyle |  設定 meta 的 style  |
 textStyle |  設定 text 的 style  |
 childStyle |  設定 child 的 style  |
 lineGap | 設定線的間距
+lineLength | 增加線的長度
+childrenParentStyle | 設定 child 父容器的 style
+
 
 
 items: 一個陣列，每個item如下

@@ -71,7 +71,9 @@ function VerticalStepsList ({ items: initItems, ...props }) {
     'metaStyle',
     'textStyle',
     'childStyle',
-    'lineGap'
+    'lineGap',
+    'lineLength',
+    'childrenParentStyle'
   ]
   for (const key in props) {
     if ((props[key] instanceof Function || isValidElement(props[key])) === false && !ignoreProps.includes(key)) {
@@ -143,7 +145,8 @@ function VerticalStepsList ({ items: initItems, ...props }) {
                         { items.length - 1 > i && !item.children && <div className={classNames('line', {
                           coming: items[i + 1].status === VSL_STATUS.COMING
                         })} style={{
-                          borderColor: props.lineColor
+                          borderColor: props.lineColor,
+                          padding: `${props.lineLength || 0}em 0`
                         }}></div>}
 
                         { item.children && (
@@ -153,10 +156,11 @@ function VerticalStepsList ({ items: initItems, ...props }) {
                             }, props.childrenClass)} style={props.childrenStyle}>
                                 {!props.hideLastLine || i < items.length - 1
                                   ? <div className="line" style={{
-                                    borderColor: props.lineColor
+                                    borderColor: props.lineColor,
+                                    padding: `${(props.lineLength || 0) + 1}em 0`
                                   }}></div>
                                   : <div style={{ marginLeft: 10, width: '2em' }}></div>}
-                                <div>
+                                <div style={props.childrenParentStyle}>
                                   {item.children.map((child, j) => (
                                     <div key={j} style={props.childStyle}>
                                         {(props.childFilter instanceof Function && props.childFilter(child.text)) || child.text}

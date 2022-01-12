@@ -183,6 +183,8 @@ metaStyle |  set style for meta.  |
 textStyle |  set style for text.  |
 childStyle |  set style for child.  |
 lineGap | set gap for line. |
+lineLength | add length for line.
+childrenParentStyle | set parent style of child.
 
 items: an Array, item like below:
 ```js
