@@ -97,8 +97,7 @@ function VerticalStepsList ({ items: initItems, ...props }) {
                         <div className={classNames('node', {
                           coming: item.status === VSL_STATUS.COMING
                         }, props.itemClass)} style={{
-                          ...props.itemStyle,
-                          height: `${1 + (props.lineGap === undefined ? 1 : props.lineGap) * 0.5}em`
+                          ...props.itemStyle
                         }} >
                             <label>
                               { item.status === VSL_STATUS.PENDING
@@ -146,21 +145,33 @@ function VerticalStepsList ({ items: initItems, ...props }) {
                           coming: items[i + 1].status === VSL_STATUS.COMING
                         })} style={{
                           borderColor: props.lineColor,
-                          padding: `${props.lineLength || 0}em 0`
+                          marginTop: `${(props.lineGap === undefined ? 1 : props.lineGap) * 0.25}em`,
+                          marginBottom: `${(props.lineGap === undefined ? 1 : props.lineGap) * 0.25}em`,
+                          padding: `${((props.lineLength || 0) + 1) * 0.25}em 0`
                         }}></div>}
 
                         { item.children && (
                             <div className={classNames('children', {
                               coming: items[i].status === VSL_STATUS.COMING,
                               done: items[i].status === VSL_STATUS.DONE
-                            }, props.childrenClass)} style={props.childrenStyle}>
+                            }, props.childrenClass)} style={{
+                              ...props.childrenStyle,
+                              marginTop: `${(props.lineGap === undefined ? 1 : props.lineGap) * 0.25}em`,
+                              marginBottom: `${(props.lineGap === undefined ? 1 : props.lineGap) * 0.25}em`
+                            }}>
                                 {!props.hideLastLine || i < items.length - 1
                                   ? <div className="line" style={{
                                     borderColor: props.lineColor,
-                                    padding: `${(props.lineLength || 0) + 1}em 0`
+                                    padding: `${((props.lineLength || 0) + 1) * 0.25}em 0`
+
                                   }}></div>
                                   : <div style={{ marginLeft: 10, width: '2em' }}></div>}
-                                <div style={props.childrenParentStyle}>
+                                <div style={{
+                                  display: 'flex',
+                                  flexDirection: 'column',
+                                  justifyContent: 'space-evenly',
+                                  ...props.childrenParentStyle
+                                }}>
                                   {item.children.map((child, j) => (
                                     <div key={j} style={props.childStyle}>
                                         {(props.childFilter instanceof Function && props.childFilter(child.text)) || child.text}
