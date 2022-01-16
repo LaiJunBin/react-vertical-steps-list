@@ -52,7 +52,7 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
 (function () {
-  var styles = ".vsl-list .node {\n  height: 1em;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.vsl-list .marker {\n  display: inline-block;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 2em;\n}\n.vsl-list .marker .circle-marker {\n  width: 1em;\n  height: 1em;\n  margin: 0 0.25em;\n  background: #000;\n  border-radius: 50%;\n}\n.vsl-list .marker > * {\n  width: 1em;\n  height: 1em;\n}\n.vsl-list label {\n  display: inline-flex;\n  align-items: center;\n  margin: 0.25em 0;\n}\n.vsl-list label > span {\n  margin: 0 0.25em;\n}\n.vsl-list label .disabled > * {\n  color: #eee;\n  opacity: 0.5;\n}\n.vsl-list label .disabled .default-checkbox {\n  background-color: #eee;\n  opacity: 0.5;\n}\n.vsl-list label > div {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 2em;\n}\n.vsl-list label > div * {\n  width: 1em;\n  height: 1em;\n}\n.vsl-list .default-checkbox {\n  border: 1px solid #333;\n  width: 1em;\n  height: 1em;\n  margin: 0 0.25em;\n}\n.vsl-list .children {\n  display: flex;\n}\n.vsl-list .children > .line {\n  width: 2em;\n  height: auto;\n}\n.vsl-list .children div > div {\n  margin: 0.25em 0;\n}\n.vsl-list .done.children {\n  border-color: #000;\n}\n.vsl-list .line {\n  height: 1em;\n  margin-left: calc(1em - 0.5px);\n  border-left: 1px solid #000;\n}\n.vsl-list .coming {\n  color: #bbbb;\n}\n.vsl-list .coming .marker {\n  opacity: 0.3;\n}\n.vsl-list .coming.line {\n  border-color: #bbbb;\n}\n.vsl-list.dark-theme {\n  color: #fff;\n}\n.vsl-list.dark-theme .marker .circle-marker {\n  background: #fff;\n}\n.vsl-list.dark-theme label .disabled > * {\n  color: #444;\n}\n.vsl-list.dark-theme label .disabled .default-checkbox {\n  background-color: #444;\n  opacity: 0.5;\n}\n.vsl-list.dark-theme .default-checkbox {\n  border: 1px solid #fff;\n}\n.vsl-list.dark-theme .done.children {\n  border-color: #fff;\n}\n.vsl-list.dark-theme .line {\n  border-left: 1px solid #fff;\n}\n.vsl-list.dark-theme .coming {\n  color: #888;\n}\n.vsl-list.dark-theme .coming .marker {\n  opacity: 0.5;\n}\n.vsl-list.dark-theme .coming.line {\n  border-color: #888;\n}";
+  var styles = ".vsl-list {\n  max-width: 100vw;\n  overflow-x: auto;\n  overflow-y: hidden;\n  white-space: nowrap;\n}\n.vsl-list .node {\n  height: 1em;\n  display: flex;\n  justify-content: space-between;\n}\n.vsl-list .marker {\n  display: inline-block;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-width: 2em;\n}\n.vsl-list .marker .circle-marker {\n  width: 1em;\n  height: 1em;\n  margin: 0 0.25em;\n  background: #000;\n  border-radius: 50%;\n}\n.vsl-list .marker > * {\n  width: 1em;\n  height: 1em;\n}\n.vsl-list label {\n  display: inline-flex;\n  align-items: flex-start;\n  margin: 0;\n}\n.vsl-list label > span {\n  margin: 0 0.25em;\n}\n.vsl-list label .disabled > * {\n  color: #eee;\n  opacity: 0.5;\n}\n.vsl-list label .disabled .default-checkbox {\n  background-color: #eee;\n  opacity: 0.5;\n}\n.vsl-list label > div {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-width: 2em;\n}\n.vsl-list label > div * {\n  width: 1em;\n  height: 1em;\n}\n.vsl-list .default-checkbox {\n  border: 1px solid #333;\n  width: 1em;\n  height: 1em;\n  margin: 0 0.25em;\n  box-sizing: border-box;\n}\n.vsl-list .children {\n  display: flex;\n}\n.vsl-list .children > .line {\n  min-width: 2em;\n  height: auto;\n}\n.vsl-list .children div > div {\n  margin: 0.25em 0;\n}\n.vsl-list .done.children {\n  border-color: #000;\n}\n.vsl-list .line {\n  height: 1em;\n  margin-left: calc(1em - 0.5px);\n  border-left: 1px solid #000;\n}\n.vsl-list .coming {\n  color: #bbbb;\n}\n.vsl-list .coming .marker {\n  opacity: 0.3;\n}\n.vsl-list .coming.line {\n  border-color: #bbbb;\n}\n.vsl-list.dark-theme {\n  color: #fff;\n}\n.vsl-list.dark-theme .marker .circle-marker {\n  background: #fff;\n}\n.vsl-list.dark-theme label .disabled > * {\n  color: #444;\n}\n.vsl-list.dark-theme label .disabled .default-checkbox {\n  background-color: #444;\n  opacity: 0.5;\n}\n.vsl-list.dark-theme .default-checkbox {\n  border: 1px solid #fff;\n}\n.vsl-list.dark-theme .done.children {\n  border-color: #fff;\n}\n.vsl-list.dark-theme .line {\n  border-left: 1px solid #fff;\n}\n.vsl-list.dark-theme .coming {\n  color: #888;\n}\n.vsl-list.dark-theme .coming .marker {\n  opacity: 0.5;\n}\n.vsl-list.dark-theme .coming.line {\n  border-color: #888;\n}";
   var fileName = "index_index";
   var element = document.querySelector("style[data-sass-component='index_index']");
 
@@ -204,9 +204,7 @@ function VerticalStepsList(_ref) {
       className: (0, _classnames.default)('node', {
         coming: item.status === _status.default.COMING
       }, props.itemClass),
-      style: _objectSpread(_objectSpread({}, props.itemStyle), {}, {
-        height: "".concat(1 + (props.lineGap === undefined ? 1 : props.lineGap) * 0.5, "em")
-      })
+      style: _objectSpread({}, props.itemStyle)
     }, /*#__PURE__*/_react.default.createElement("label", null, item.status === _status.default.PENDING ? /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("input", {
       type: "checkbox",
       onClick: function onClick() {
@@ -245,19 +243,24 @@ function VerticalStepsList(_ref) {
       }),
       style: {
         borderColor: props.lineColor,
-        padding: "".concat(props.lineLength || 0, "em 0")
+        marginTop: "".concat((props.lineGap === undefined ? 1 : props.lineGap) * 0.25, "em"),
+        marginBottom: "".concat((props.lineGap === undefined ? 1 : props.lineGap) * 0.25, "em"),
+        padding: "".concat(((props.lineLength || 0) + 1) * 0.25, "em 0")
       }
     }), item.children && /*#__PURE__*/_react.default.createElement("div", {
       className: (0, _classnames.default)('children', {
         coming: items[i].status === _status.default.COMING,
         done: items[i].status === _status.default.DONE
       }, props.childrenClass),
-      style: props.childrenStyle
+      style: _objectSpread(_objectSpread({}, props.childrenStyle), {}, {
+        marginTop: "".concat((props.lineGap === undefined ? 1 : props.lineGap) * 0.25, "em"),
+        marginBottom: "".concat((props.lineGap === undefined ? 1 : props.lineGap) * 0.25, "em")
+      })
     }, !props.hideLastLine || i < items.length - 1 ? /*#__PURE__*/_react.default.createElement("div", {
       className: "line",
       style: {
         borderColor: props.lineColor,
-        padding: "".concat((props.lineLength || 0) + 1, "em 0")
+        padding: "".concat(((props.lineLength || 0) + 1) * 0.25, "em 0")
       }
     }) : /*#__PURE__*/_react.default.createElement("div", {
       style: {
@@ -265,7 +268,11 @@ function VerticalStepsList(_ref) {
         width: '2em'
       }
     }), /*#__PURE__*/_react.default.createElement("div", {
-      style: props.childrenParentStyle
+      style: _objectSpread({
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-evenly'
+      }, props.childrenParentStyle)
     }, item.children.map(function (child, j) {
       return /*#__PURE__*/_react.default.createElement("div", {
         key: j,
