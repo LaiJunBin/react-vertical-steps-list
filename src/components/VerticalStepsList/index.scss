@@ -1,9 +1,4 @@
 .vsl-list {
-    max-width: 100vw;
-    overflow-x: auto;
-    overflow-y: hidden;
-    white-space: nowrap;
-    
     .node {
         height: 1em;
         display: flex;
@@ -15,7 +10,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        min-width: 2em;
+        width: 2em;
 
         .circle-marker {
             width: 1em;
@@ -34,11 +29,13 @@
 
     label {
         display: inline-flex;
-        align-items: flex-start;
-        margin: 0;
+        align-items: center;
+        margin: .25em 0;
 
         & > span {
             margin: 0 .25em;
+            transform: translateY(-12.5%);
+            height: 1em;
         }
 
         .disabled  {
@@ -55,7 +52,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-width: 2em;
+            width: 2em;
 
             & * {
                 width: 1em;
@@ -64,19 +61,23 @@
         }
     }
 
+    .meta {
+        transform: translateY(-12.5%);
+        height: 1em;
+    }
+
     .default-checkbox {
         border: 1px solid #333;
         width: 1em;
         height: 1em;
         margin: 0 0.25em;
-        box-sizing: border-box;
     }
 
     .children {
         display: flex;
 
         & > .line {
-            min-width: 2em;
+            width: 2em;
             height: auto;
         }
 
