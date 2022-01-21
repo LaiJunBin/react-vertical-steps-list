@@ -17,7 +17,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        min-width: 2rem;
+        min-width: 2em;
 
         .circle-marker {
             width: 1em;
@@ -100,7 +100,7 @@
 
     .line {
         height: 1em;
-        margin-left: calc(1rem - 0.5px);
+        margin-left: calc(1em - 0.5px);
         border-left: 1px solid #000;
     }
 
