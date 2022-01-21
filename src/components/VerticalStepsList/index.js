@@ -130,9 +130,9 @@ function VerticalStepsList ({ items: initItems, ...props }) {
                                   </>
                                 </div>
                               }
-                              <span style={props.textStyle}>
+                              <div style={props.textStyle}>
                                 {(props.textFilter instanceof Function && props.textFilter(item.text)) || item.text}
-                              </span>
+                              </div>
                             </label>
                             { item.meta instanceof Function
                               ? <>

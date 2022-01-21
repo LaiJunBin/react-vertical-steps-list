@@ -1,4 +1,10 @@
 .vsl-list {
+    max-width: 100vw;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding-bottom: 10px;
+
     .node {
         height: 1em;
         display: flex;
@@ -10,7 +16,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 2em;
+        min-width: 2em;
 
         .circle-marker {
             width: 1em;
@@ -29,8 +35,8 @@
 
     label {
         display: inline-flex;
-        align-items: center;
-        margin: .25em 0;
+        align-items: flex-start;
+        margin: 0;
 
         & > span {
             margin: 0 .25em;
@@ -48,11 +54,11 @@
                 opacity: 0.5;
             }
         }
-        & > div {
+        & > div:first-of-type {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 2em;
+            min-width: 2em;
 
             & * {
                 width: 1em;
@@ -62,8 +68,8 @@
     }
 
     .meta {
-        transform: translateY(-12.5%);
         height: 1em;
+        margin-left: 1em;
     }
 
     .default-checkbox {
@@ -71,13 +77,14 @@
         width: 1em;
         height: 1em;
         margin: 0 0.25em;
+        box-sizing: border-box;
     }
 
     .children {
         display: flex;
 
         & > .line {
-            width: 2em;
+            min-width: 2em;
             height: auto;
         }
 
