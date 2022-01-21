@@ -3,7 +3,8 @@
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
-    padding-bottom: 10px;
+    padding-top: 1em;
+    padding-bottom: 1em;
 
     .node {
         height: 1em;
@@ -16,7 +17,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        min-width: 2em;
+        min-width: 2rem;
 
         .circle-marker {
             width: 1em;
@@ -99,7 +100,7 @@
 
     .line {
         height: 1em;
-        margin-left: calc(1em - 0.5px);
+        margin-left: calc(1rem - 0.5px);
         border-left: 1px solid #000;
     }
 
