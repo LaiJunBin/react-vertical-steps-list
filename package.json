@@ -1,6 +1,6 @@
 {
   "name": "react-vertical-steps-list",
-  "description": "",
+  "description": "Generate vertical progress list with ease.",
   "repository": {
     "type": "git",
     "url": "https://github.com/laijunbin/react-vertical-steps-list.git"
